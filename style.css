@@ -31,15 +31,11 @@ body {
 .tv.on::after {
     content: '';
     position: absolute;
-    top: 50%; left: 50%; /* Center the pseudo-element */
-    width: 240px; /* Larger than the TV to create a glow effect */
-    height: 190px; /* Larger than the TV to create a glow effect */
-    margin-top: -95px; /* Offset by half of the height for centering */
-    margin-left: -120px; /* Offset by half of the width for centering */
+    top: -10%; left: -10%; right: -10%; bottom: -10%;
     border-radius: 15px;
-    background: radial-gradient(circle, var(--glow-color) 40%, transparent 70%);
-    opacity: 0.7; /* Adjust for desired intensity */
-    z-index: -1; /* Ensure glow is behind the TV content */
+    box-shadow: 0 0 15px 5px var(--glow-color); /* Ambient glow */
+    opacity: 0.6;
+    z-index: -1;
 }
 
 /* Additional layer for more pronounced glow */
