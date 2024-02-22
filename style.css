@@ -34,8 +34,8 @@ body {
     top: -10%; left: -10%; right: -10%; bottom: -10%;
     border-radius: 15px;
     box-shadow: 0 0 15px 5px var(--glow-color); /* Ambient glow */
-    opacity: 0.6;
-    z-index: -1;
+    opacity: 0.7;
+    z-index: 2;
 }
 
 /* Additional layer for more pronounced glow */
@@ -43,7 +43,7 @@ body {
     content: '';
     position: absolute;
     top: -2%; left: -2%; right: -2%; bottom: -2%; /* Closer to TV edges */
-    border-radius: 15px;
+    border-radius: 12px;
     background: var(--glow-color); /* Solid color layer beneath glow for intensity */
     filter: blur(8px); /* Soft blur for realistic glow effect */
     opacity: 0.3; /* Subtle visibility to enhance the glow without overpowering */
