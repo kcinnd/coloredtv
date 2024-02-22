@@ -50,64 +50,59 @@ body {
     z-index: 1;
 }
 
-/* Yellow TV specific styles */
-.tv.yellow.on {
-    overflow: visible; /* Allow sparkles to show outside the TV */
-    position: relative; /* Establish positioning context for pseudo-elements */
+/* Base styles for sparkles */
+.sparkle, .tv.yellow.on::before, .tv.yellow.on::after {
+    content: '✦';
+    position: absolute;
+    font-size: 20px; /* Adjust the size of the sparkles */
+    color: #FFFFFF; /* Change to white or a lighter shade of yellow for contrast */
+    animation: sparkleAnimation 1.5s infinite ease-in-out;
+    opacity: 0; /* Start and end with sparkles faded out */
 }
 
-/* Sparkles animation */
+/* Generate multiple sparkles using CSS pseudo-elements and added span elements */
+.tv.yellow.on .sparkle, 
+.tv.yellow.on::before, 
+.tv.yellow.on::after {
+    content: '✦';
+}
+
+/* Positioning and animation for each sparkle */
+.tv.yellow.on .sparkle:nth-child(1), .tv.yellow.on::before {
+    top: 10%;
+    left: 20%;
+    animation-delay: 0s;
+}
+
+.tv.yellow.on .sparkle:nth-child(2), .tv.yellow.on::after {
+    top: 80%;
+    right: 15%;
+    animation-delay: 0.5s;
+}
+
+.tv.yellow.on .sparkle:nth-child(3) {
+    bottom: 20%;
+    left: 10%;
+    animation-delay: 1s;
+}
+
+.tv.yellow.on .sparkle:nth-child(4) {
+    top: 50%;
+    right: 10%;
+    animation-delay: 1.5s;
+}
+
+/* Additional sparkles can be positioned and timed similarly */
+
 @keyframes sparkleAnimation {
     0%, 100% {
-        opacity: 0;
         transform: scale(0);
+        opacity: 0;
     }
     50% {
-        opacity: 1;
         transform: scale(1);
+        opacity: 1;
     }
-}
-
-/* Generate multiple sparkles using pseudo-elements */
-.tv.yellow.on::before,
-.tv.yellow.on::after {
-    content: '★'; /* Using a star character for simplicity, can be replaced with images */
-    position: absolute;
-    font-size: 20px; /* Adjust size as needed */
-    color: #FFD700; /* Gold color for the sparkles */
-    animation: sparkleAnimation 1s infinite ease-in-out;
-    opacity: 0; /* Start and end the animation with sparkles faded out */
-}
-
-.tv.yellow.on::before {
-    top: -10px;
-    left: 10px;
-    animation-delay: -0.5s; /* Stagger the animations for a continuous effect */
-}
-
-.tv.yellow.on::after {
-    top: 10px;
-    right: -10px;
-}
-
-/* Additional sparkles for more effect */
-.tv.yellow.on::nth-child(1)::before,
-.tv.yellow.on::nth-child(1)::after {
-    content: '✦'; /* Different sparkle character for variety */
-    font-size: 15px; /* Slightly smaller than the stars */
-    animation: sparkleAnimation 1.5s infinite ease-in-out;
-}
-
-.tv.yellow.on::nth-child(1)::before {
-    bottom: -10px;
-    right: 20px;
-    animation-delay: 0s; /* Different delays for asynchronous twinkling */
-}
-
-.tv.yellow.on::nth-child(1)::after {
-    top: 20px;
-    left: -5px;
-    animation-delay: 1s;
 }
 
 .red { --glow-color: #ff0000; } /* Keeping red as is for reference */
