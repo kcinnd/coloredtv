@@ -11,8 +11,8 @@ body {
 }
 
 .tv {
-    width: 250px; /* Further increased width for larger TVs */
-    height: 180px; /* Further increased height for larger TVs */
+    width: 230px; /* Further increased width for larger TVs */
+    height: 165px; /* Further increased height for larger TVs */
     background-color: black;
     border: 8px solid #555; /* Thicker border for a more pronounced TV frame */
     border-radius: 20px; /* Adjusted for a more realistic TV look */
@@ -25,36 +25,36 @@ body {
 .tv:before {
     content: '';
     position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background-color: inherit; /* Inherits the background color of the TV */
-    filter: blur(50px); /* Large blur for a soft glow effect */
-    opacity: 0; /* Starts as invisible */
-    transition: opacity 0.3s; /* Smooth transition for the glow effect */
-    z-index: -1; /* Ensures the glow is behind the TV content */
+    top: 10%;
+    left: 10%;
+    right: 10%;
+    bottom: 10%;
+    border-radius: 15px;
+    z-index: -1;
+    filter: blur(15px);
+    opacity: 0; /* Initially invisible, becomes visible when "on" */
+    transition: opacity 0.3s;
+    background-color: var(--glow-color); /* Uses the TV's color variable for the glow */
 }
 
 .tv.on {
-    box-shadow: 0 0 25px 15px var(--glow-color), 0 0 35px 25px var(--glow-color), 0 0 45px 35px var(--glow-color); /* More intense layered glow */
-    transform: scale(1.1); /* Slightly enlarges the TV when turned on for added realism */
+    transform: scale(1.1);
 }
 
 .tv.on:before {
-    opacity: 1; /* Reveals the glow when the TV is on */
+    opacity: 0.6; /* Glow becomes visible when the TV is "on" */
 }
 
 /* Color classes with custom properties for glow */
-.red { background-color: red; --glow-color: red; }
-.red-orange { background-color: #ff5349; --glow-color: #ff5349; }
-.orange { background-color: orange; --glow-color: orange; }
-.orange-yellow { background-color: #ffae42; --glow-color: #ffae42; }
-.yellow { background-color: yellow; --glow-color: yellow; }
-.yellow-green { background-color: #9acd32; --glow-color: #9acd32; }
-.green { background-color: green; --glow-color: green; }
-.green-blue { background-color: #0d98ba; --glow-color: #0d98ba; }
-.blue { background-color: blue; --glow-color: blue; }
-.blue-purple { background-color: #8a2be2; --glow-color: #8a2be2; }
-.purple { background-color: purple; --glow-color: purple; }
-.purple-red { background-color: #db7093; --glow-color: #db7093; }
+.red { --glow-color: red; }
+.red-orange { --glow-color: #ff5349; }
+.orange { --glow-color: orange; }
+.orange-yellow { --glow-color: #ffae42; }
+.yellow { --glow-color: yellow; }
+.yellow-green { --glow-color: #9acd32; }
+.green { --glow-color: green; }
+.green-blue { --glow-color: #0d98ba; }
+.blue { --glow-color: blue; }
+.blue-purple { --glow-color: #8a2be2; }
+.purple { --glow-color: purple; }
+.purple-red { --glow-color: #db7093; }
