@@ -63,10 +63,19 @@ body {
 .tv.yellow.on::before {
     content: '';
     position: absolute;
-    top: -15px; left: -15px; right: -15px; bottom: -15px; /* Halo size */
+    top: -10px; left: -10px; right: -10px; bottom: -10px;
     border-radius: 50%;
-    box-shadow: 0 0 20px 10px #FFFF99; /* Light yellow halo */
-    animation: pulsate 2s infinite ease-in-out;
+    box-shadow: 0 0 0 0 rgba(250, 208, 44, 0.5); /* Initial state with light yellow color */
+    animation: pulsate 2s infinite ease-in-out forwards;
+}
+
+@keyframes pulsate {
+    0%, 100% {
+        box-shadow: 0 0 10px 5px rgba(250, 208, 44, 0.5);
+    }
+    50% {
+        box-shadow: 0 0 15px 10px rgba(250, 208, 44, 0.7); /* Expanded state */
+    }
 }
 
 .star {
