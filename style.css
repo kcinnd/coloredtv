@@ -5,18 +5,18 @@ body {
 
 .grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: 40px; /* Further increased gap for larger TVs */
     padding: 60px; /* Increased padding for the larger layout */
 }
 
 .tv {
-    width: 230px; /* Further increased width for larger TVs */
-    height: 165px; /* Further increased height for larger TVs */
+    width: 225px; /* Further increased width for larger TVs */
+    height: 150px; /* Further increased height for larger TVs */
     background-color: black;
-    border: 8px solid #555; /* Thicker border for a more pronounced TV frame */
+    border: 12px solid #555; /* Thicker border for a more pronounced TV frame */
     border-radius: 20px; /* Adjusted for a more realistic TV look */
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.7); /* Deeper shadow for more depth */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.7); /* Deeper shadow for more depth */
     position: relative;
     overflow: hidden; /* Ensures the glow doesn't extend outside the TV border */
     transition: box-shadow 0.3s, transform 0.3s; /* Smooth transitions for effects */
@@ -25,16 +25,16 @@ body {
 .tv:before {
     content: '';
     position: absolute;
-    top: 10%;
-    left: 10%;
-    right: 10%;
-    bottom: 10%;
+    top: 15%;
+    left: 15%;
+    right: 15%;
+    bottom: 15%;
     border-radius: 15px;
     z-index: -1;
-    filter: blur(15px);
-    opacity: 0; /* Initially invisible, becomes visible when "on" */
+    filter: blur(10px);
+    opacity: 0; /* Initially invisible, visible when "on" */
     transition: opacity 0.3s;
-    background-color: var(--glow-color); /* Uses the TV's color variable for the glow */
+    background-color: var(--glow-color);
 }
 
 .tv.on {
@@ -42,7 +42,7 @@ body {
 }
 
 .tv.on:before {
-    opacity: 0.6; /* Glow becomes visible when the TV is "on" */
+    opacity: 0.75; /* Glow becomes visible when the TV is "on" */
 }
 
 /* Color classes with custom properties for glow */
