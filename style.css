@@ -24,6 +24,8 @@ body {
 
 .tv.on {
     background-color: var(--glow-color); /* Fill TV with color when on */
+    box-shadow: 0 0 20px 5px var(--glow-color); /* Glow effect using box-shadow */
+    z-index: 1; /* Ensure the glow is visible above other elements if necessary */
 }
 
 .tv.on::after {
