@@ -14,7 +14,7 @@ body {
     width: 225px; /* Further increased width for larger TVs */
     height: 150px; /* Further increased height for larger TVs */
     background-color: black;
-    border: 8px solid #333; /* Thicker border for a more pronounced TV frame */
+    border: 10px solid #555; /* Thicker border for a more pronounced TV frame */
     border-radius: 15px; /* Adjusted for a more realistic TV look */
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.7); /* Deeper shadow for more depth */
     position: relative;
@@ -31,11 +31,11 @@ body {
 .tv.on::after {
     content: '';
     position: absolute;
-    top: -10px; left: -10px; right: -10px; bottom: -10px; /* Extends beyond the TV to create the glow effect */
-    border-radius: 15px; /* Smooth rounded corners for the glow */
-    background: radial-gradient(circle, var(--glow-color) 60%, transparent 100%);
-    z-index: 2; /* Ensures glow is above all other layers */
-    opacity: 0.7; /* Adjust opacity for desired glow intensity */
+    top: -10%; left: -10%; right: -10%; bottom: -10%;
+    border-radius: 15px;
+    box-shadow: 0 0 15px 5px var(--glow-color); /* Ambient glow */
+    opacity: 0.7;
+    z-index: 2;
 }
 
 /* Additional layer for more pronounced glow */
@@ -43,11 +43,10 @@ body {
     content: '';
     position: absolute;
     top: -2%; left: -2%; right: -2%; bottom: -2%; /* Closer to TV edges */
-    border-radius: 10px;
+    border-radius: 12px;
     background: var(--glow-color); /* Solid color layer beneath glow for intensity */
     filter: blur(8px); /* Soft blur for realistic glow effect */
     opacity: 0.3; /* Subtle visibility to enhance the glow without overpowering */
-    z-index: 1;
 }
 
 .red { --glow-color: #ff0000; } /* Keeping red as is for reference */
