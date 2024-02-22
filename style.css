@@ -1,0 +1,38 @@
+body {
+    background-color: #adc4b2;
+    cursor: url('https://i.imgur.com/HVptFLH.png'), auto;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    padding: 20px;
+}
+
+.tv {
+    width: 100px;
+    height: 60px;
+    background-color: black;
+    border: 2px solid #333;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+.tv.on {
+    box-shadow: 0 0 20px 10px;
+}
+
+/* Color classes */
+.red { background-color: red; box-shadow: 0 0 20px 10px red; }
+.red-orange { background-color: #ff5349; box-shadow: 0 0 20px 10px #ff5349; }
+.orange { background-color: orange; box-shadow: 0 0 20px 10px orange; }
+.orange-yellow { background-color: #ffae42; box-shadow: 0 0 20px 10px #ffae42; }
+.yellow { background-color: yellow; box-shadow: 0 0 20px 10px yellow; }
+.yellow-green { background-color: #9acd32; box-shadow: 0 0 20px 10px #9acd32; }
+.green { background-color: green; box-shadow: 0 0 20px 10px green; }
+.green-blue { background-color: #0d98ba; box-shadow: 0 0 20px 10px #0d98ba; }
+.blue { background-color: blue; box-shadow: 0 0 20px 10px blue; }
+.blue-purple { background-color: #8a2be2; box-shadow: 0 0 20px 10px #8a2be2; }
+.purple { background-color: purple; box-shadow: 0 0 20px 10px purple; }
+.purple-red { background-color: #db7093; box-shadow: 0 0 20px 10px #db7093; }
