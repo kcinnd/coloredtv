@@ -22,25 +22,22 @@ body {
     transition: box-shadow 0.3s, transform 0.3s; /* Smooth transitions for effects */
 }
 
-.tv:before {
-    content: '';
-    position: absolute;
-    top: 12%;
-    left: 12%;
-    right: 12%;
-    bottom: 12%;
-    border-radius: 12px;
-    z-index: -1;
-    filter: blur(8px);
-    opacity: 0; /* Initially invisible, visible when "on" */
-    transition: opacity 0.3s;
-    background-color: var(--glow-color);
+.tv.on {
+    background-color: var(--glow-color); /* Fill TV with color when on */
 }
 
-.tv.on {
-    background-color: var(--glow-color); /* Color the TV when turned on */
-    box-shadow: 0 0 8px 3px var(--glow-color); /* Subtle glow outside the TV */
-    transition: background-color 0.3s, box-shadow 0.3s; /* Smooth transition for color and glow */
+.tv.on:before {
+    content: '';
+    position: absolute;
+    top: -2%; /* Extend slightly beyond the TV border */
+    left: -2%;
+    right: -2%;
+    bottom: -2%;
+    background: transparent; /* Transparent background */
+    border-radius: 15px;
+    box-shadow: 0 0 8px 2px var(--glow-color); /* Subtle glow effect */
+    z-index: -1; /* Positioned behind the TV content */
+    opacity: 1; /* Fully visible glow */
 }
 
 /* Color classes with custom properties for glow */
