@@ -14,18 +14,22 @@ body {
     width: 225px; /* Further increased width for larger TVs */
     height: 150px; /* Further increased height for larger TVs */
     background-color: black;
-    border: 10px solid #555; /* Thicker border for a more pronounced TV frame */
+    border: 5px solid rgba(51, 51, 51, 0.5); /* Thicker border for a more pronounced TV frame */
     border-radius: 15px; /* Adjusted for a more realistic TV look */
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.7); /* Deeper shadow for more depth */
     position: relative;
-    overflow: hidden; /* Ensures the glow doesn't extend outside the TV border */
-    transition: box-shadow 0.3s, transform 0.3s; /* Smooth transitions for effects */
+    overflow: visible; /* Ensures the glow doesn't extend outside the TV border */
+    transition: border-color 0.3s; /* Smooth transitions for effects */
 }
 
 .tv.on {
     background-color: var(--glow-color); /* Fill TV with color when on */
-    box-shadow: 0 0 20px 5px var(--glow-color); /* Glow effect using box-shadow */
-    z-index: 1; /* Ensure the glow is visible above other elements if necessary */
+    border-color: rgba(255, 255, 255, 0.3); /* Lighter, more transparent border when TV is on */
+    box-shadow: 
+        0 0 5px 2px var(--glow-color), /* Immediate glow, close to the TV */
+        0 0 10px 5px var(--glow-color), /* Medium glow, extending further */
+        0 0 20px 10px rgba(var(--glow-color-rgb), 0.5); /* Outermost glow, most transparent and extended */
+    z-index: 1; /* Ensure the glow overlays the frame */
 }
 
 .tv.on::after {
