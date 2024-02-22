@@ -13,21 +13,23 @@ document.addEventListener('DOMContentLoaded', () => {
             const audio = document.querySelector(`.audio.${colors[index]}-audio`); // Select the corresponding audio element
 
             if (tv.classList.contains('on')) {
-                tv.className = 'tv'; // Turn off
+                // Turn off the TV
+                tv.classList.remove('on');
+                colors.forEach(color => tv.classList.remove(color)); // Remove color classes
                 audio.pause(); // Pause the audio
                 audio.currentTime = 0; // Reset the audio to the start
             } else {
-                // Ensure all other TVs are turned off and their audios are stopped
+                // Turn off all other TVs and stop their audios
                 tvs.forEach((otherTv, otherIndex) => {
-                    if (otherTv !== tv) {
-                        otherTv.className = 'tv';
-                        const otherAudio = document.querySelector(`.audio.${colors[otherIndex]}-audio`);
-                        otherAudio.pause();
-                        otherAudio.currentTime = 0;
-                    }
+                    otherTv.classList.remove('on'); // Turn off the TV
+                    colors.forEach(color => otherTv.classList.remove(color)); // Remove color classes
+                    const otherAudio = document.querySelector(`.audio.${colors[otherIndex]}-audio`);
+                    otherAudio.pause();
+                    otherAudio.currentTime = 0;
                 });
 
-                tv.className = 'tv on ' + colors[index]; // Turn on with color
+                // Turn on this TV
+                tv.classList.add('on', colors[index]); // Add 'on' state and color class
                 audio.play(); // Play the audio
             }
         });
