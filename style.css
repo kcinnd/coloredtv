@@ -6,22 +6,43 @@ body {
 .grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-    padding: 40px;
+    gap: 30px; /* Further increased gap for larger TVs */
+    padding: 50px; /* Increased padding for the larger layout */
 }
 
 .tv {
-    width: 150px; /* Increased width */
-    height: 100px; /* Increased height */
+    width: 200px; /* Further increased width for larger TVs */
+    height: 140px; /* Further increased height for larger TVs */
     background-color: black;
-    border: 3px solid #333; /* Slightly thicker border for larger TVs */
-    border-radius: 10px; /* Adjusted for aesthetic */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Soft shadow around TV */
-    transition: box-shadow 0.3s; /* Smooth transition for glow effect */
+    border: 5px solid #555; /* Thicker border for a more pronounced TV frame */
+    border-radius: 15px; /* Adjusted for a more realistic TV look */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.7); /* Deeper shadow for more depth */
+    position: relative;
+    overflow: hidden; /* Ensures the glow doesn't extend outside the TV border */
+    transition: box-shadow 0.3s, transform 0.3s; /* Smooth transitions for effects */
+}
+
+.tv:before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background-color: inherit; /* Inherits the background color of the TV */
+    filter: blur(40px); /* Large blur for a soft glow effect */
+    opacity: 0; /* Starts as invisible */
+    transition: opacity 0.3s; /* Smooth transition for the glow effect */
+    z-index: -1; /* Ensures the glow is behind the TV content */
 }
 
 .tv.on {
-    box-shadow: 0 0 30px 20px var(--glow-color); /* Intense and colored glow */
+    box-shadow: 0 0 20px 10px var(--glow-color), 0 0 30px 20px var(--glow-color), 0 0 40px 30px var(--glow-color); /* Layered glow for more intensity */
+    transform: scale(1.05); /* Slightly enlarges the TV when turned on for a dynamic effect */
+}
+
+.tv.on:before {
+    opacity: 1; /* Makes the glow visible when the TV is on */
 }
 
 /* Color classes with custom properties for glow */
