@@ -69,71 +69,31 @@ body {
     animation: pulsate 2s infinite ease-in-out;
 }
 
-@keyframes pulsate {
-    0%, 100% {
-        box-shadow: 0 0 20px 10px #FFFF99;
-    }
-    50% {
-        box-shadow: 0 0 30px 15px #FFFF99; /* Halo expands */
-    }
-}
-
-.sparkle {
+.star {
     position: absolute;
-    width: 10px;
-    height: 10px;
-    background-color: #FAD02C; /* Sparkle color */
-    border-radius: 50%; /* Makes the sparkles circular */
-    opacity: 0; /* Sparkles start out invisible */
+    width: 5px; height: 5px; /* Base size for stars, will vary */
+    background-color: #FFFF99; /* Light yellow stars */
+    border-radius: 50%; /* Make stars circular */
+    opacity: 0.8; /* Stars slightly translucent */
 }
 
-/* Keyframes for sparkle animation */
-@keyframes sparkle {
-    0%, 100% {
-        opacity: 0;
-        transform: scale(0);
-    }
-    50% {
-        opacity: 1;
-        transform: scale(1);
-    }
-}
+/* Varying sizes and animations for stars */
+.star:nth-child(1) { width: 6px; height: 6px; top: 15%; left: 25%; animation: drift 8s infinite; }
+.star:nth-child(2) { width: 8px; height: 8px; top: 30%; left: 10%; animation: drift 6s infinite 1s; }
+.star:nth-child(3) { width: 5px; height: 5px; bottom: 20%; right: 30%; animation: drift 10s infinite 2s; }
+.star:nth-child(4) { width: 7px; height: 7px; top: 50%; right: 20%; animation: drift 7s infinite 1.5s; }
+.star:nth-child(5) { width: 9px; height: 9px; bottom: 30%; left: 40%; animation: drift 5s infinite 0.5s; }
+.star:nth-child(6) { width: 4px; height: 4px; top: 70%; left: 15%; animation: drift 9s infinite 2.5s; }
+.star:nth-child(7) { width: 10px; height: 10px; bottom: 10%; right: 40%; animation: drift 11s infinite 3s; }
+.star:nth-child(8) { width: 6px; height: 6px; top: 20%; right: 35%; animation: drift 8s infinite 0.75s; }
+.star:nth-child(9) { width: 5px; height: 5px; bottom: 40%; left: 20%; animation: drift 7s infinite 1.25s; }
+.star:nth-child(10) { width: 8px; height: 8px; top: 60%; left: 30%; animation: drift 6s infinite 2.75s; }
+.star:nth-child(11) { width: 7px; height: 7px; bottom: 15%; right: 10%; animation: drift 12s infinite 1.75s; }
+.star:nth-child(12) { width: 9px; height: 9px; top: 40%; right: 30%; animation: drift 5s infinite 2.25s; }
 
-/* Individual animation for each sparkle */
-.tv.yellow .sparkle:nth-child(1) {
-    top: 10%;
-    left: 30%;
-    animation: sparkle 1.5s infinite ease-in-out;
-}
-
-.tv.yellow .sparkle:nth-child(2) {
-    top: 50%;
-    left: 10%;
-    animation: sparkle 2s infinite ease-in-out 0.5s; /* Different duration & delay */
-}
-
-.tv.yellow .sparkle:nth-child(3) {
-    bottom: 20%;
-    right: 25%;
-    animation: sparkle 1.8s infinite ease-in-out 0.3s;
-}
-
-.tv.yellow .sparkle:nth-child(4) {
-    top: 20%;
-    right: 20%;
-    animation: sparkle 2s infinite ease-in-out 0.7s;
-}
-
-.tv.yellow .sparkle:nth-child(5) {
-    bottom: 30%;
-    left: 40%;
-    animation: sparkle 1.7s infinite ease-in-out 0.2s;
-}
-
-.tv.yellow .sparkle:nth-child(6) {
-    top: 60%;
-    right: 30%;
-    animation: sparkle 1.6s infinite ease-in-out 0.4s;
+@keyframes drift {
+    0%, 100% { transform: translateY(0) scale(1); opacity: 1; }
+    50% { transform: translateY(-20px) scale(1.5); opacity: 0.5; } /* Stars drift upwards, grow, and fade */
 }
 
 .red { --glow-color: #ff0000; } /* Keeping red as is for reference */
