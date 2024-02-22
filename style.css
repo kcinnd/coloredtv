@@ -50,58 +50,6 @@ body {
     z-index: 1;
 }
 
-.tv.yellow.on::before {
-    content: '';
-    position: absolute;
-    top: -10px; left: -10px; right: -10px; bottom: -10px;
-    border-radius: 50%;
-    box-shadow: 0 0 0 0 rgba(250, 208, 44, 0.5); /* Initial state with light yellow color */
-    animation: pulsate 2s infinite ease-in-out forwards;
-}
-
-@keyframes pulsate {
-    0%, 100% {
-        box-shadow: 0 0 10px 5px rgba(250, 208, 44, 0.5);
-    }
-    50% {
-        box-shadow: 0 0 15px 10px rgba(250, 208, 44, 0.7); /* Expanded state */
-    }
-}
-
-/* Styles for star particles */
-.star {
-    position: absolute;
-    background-color: #FFFF99; /* Star color */
-    border-radius: 50%; /* Make stars circular */
-    opacity: 0; /* Start invisible */
-    animation: drift 3s infinite ease-in-out;
-}
-
-/* Varying sizes and animations for stars */
-.star:nth-child(1) { width: 6px; height: 6px; top: 15%; left: 25%; animation: drift 8s infinite; }
-.star:nth-child(2) { width: 8px; height: 8px; top: 30%; left: 10%; animation: drift 6s infinite 1s; }
-.star:nth-child(3) { width: 5px; height: 5px; bottom: 20%; right: 30%; animation: drift 10s infinite 2s; }
-.star:nth-child(4) { width: 7px; height: 7px; top: 50%; right: 20%; animation: drift 7s infinite 1.5s; }
-.star:nth-child(5) { width: 9px; height: 9px; bottom: 30%; left: 40%; animation: drift 5s infinite 0.5s; }
-.star:nth-child(6) { width: 4px; height: 4px; top: 70%; left: 15%; animation: drift 9s infinite 2.5s; }
-.star:nth-child(7) { width: 10px; height: 10px; bottom: 10%; right: 40%; animation: drift 11s infinite 3s; }
-.star:nth-child(8) { width: 6px; height: 6px; top: 20%; right: 35%; animation: drift 8s infinite 0.75s; }
-.star:nth-child(9) { width: 5px; height: 5px; bottom: 40%; left: 20%; animation: drift 7s infinite 1.25s; }
-.star:nth-child(10) { width: 8px; height: 8px; top: 60%; left: 30%; animation: drift 6s infinite 2.75s; }
-.star:nth-child(11) { width: 7px; height: 7px; bottom: 15%; right: 10%; animation: drift 12s infinite 1.75s; }
-.star:nth-child(12) { width: 9px; height: 9px; top: 40%; right: 30%; animation: drift 5s infinite 2.25s; }
-
-@keyframes drift {
-    0%, 100% {
-        transform: translateY(0) scale(1);
-        opacity: 0;
-    }
-    50% {
-        transform: translateY(-10px) scale(1.5); /* Move up and grow */
-        opacity: 1;
-    }
-}
-
 .red { --glow-color: #ff0000; } /* Keeping red as is for reference */
 .red-orange { --glow-color: #FF4433; }
 .orange { --glow-color: #FF7518; } /* Assuming a missing digit, possibly #F75180 or #FF7518 */
