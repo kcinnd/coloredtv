@@ -50,59 +50,67 @@ body {
     z-index: 1;
 }
 
-/* Base styles for sparkles */
-.sparkle, .tv.yellow.on::before, .tv.yellow.on::after {
-    content: '✦';
+.tv.yellow {
+    position: relative;
+    overflow: visible; /* Allows sparkles to extend beyond the TV's border */
+}
+
+.sparkle {
     position: absolute;
-    font-size: 20px; /* Adjust the size of the sparkles */
-    color: #FFFFFF; /* Change to white or a lighter shade of yellow for contrast */
-    animation: sparkleAnimation 1.5s infinite ease-in-out;
-    opacity: 0; /* Start and end with sparkles faded out */
+    width: 10px;
+    height: 10px;
+    background-color: #FAD02C; /* Sparkle color */
+    border-radius: 50%; /* Makes the sparkles circular */
+    opacity: 0; /* Sparkles start out invisible */
 }
 
-/* Generate multiple sparkles using CSS pseudo-elements and added span elements */
-.tv.yellow.on .sparkle, 
-.tv.yellow.on::before, 
-.tv.yellow.on::after {
-    content: '✦';
-}
-
-/* Positioning and animation for each sparkle */
-.tv.yellow.on .sparkle:nth-child(1), .tv.yellow.on::before {
-    top: 10%;
-    left: 20%;
-    animation-delay: 0s;
-}
-
-.tv.yellow.on .sparkle:nth-child(2), .tv.yellow.on::after {
-    top: 80%;
-    right: 15%;
-    animation-delay: 0.5s;
-}
-
-.tv.yellow.on .sparkle:nth-child(3) {
-    bottom: 20%;
-    left: 10%;
-    animation-delay: 1s;
-}
-
-.tv.yellow.on .sparkle:nth-child(4) {
-    top: 50%;
-    right: 10%;
-    animation-delay: 1.5s;
-}
-
-/* Additional sparkles can be positioned and timed similarly */
-
-@keyframes sparkleAnimation {
+/* Keyframes for sparkle animation */
+@keyframes sparkle {
     0%, 100% {
-        transform: scale(0);
         opacity: 0;
+        transform: scale(0);
     }
     50% {
-        transform: scale(1);
         opacity: 1;
+        transform: scale(1);
     }
+}
+
+/* Individual animation for each sparkle */
+.tv.yellow .sparkle:nth-child(1) {
+    top: 10%;
+    left: 30%;
+    animation: sparkle 1.5s infinite ease-in-out;
+}
+
+.tv.yellow .sparkle:nth-child(2) {
+    top: 50%;
+    left: 10%;
+    animation: sparkle 2s infinite ease-in-out 0.5s; /* Different duration & delay */
+}
+
+.tv.yellow .sparkle:nth-child(3) {
+    bottom: 20%;
+    right: 25%;
+    animation: sparkle 1.8s infinite ease-in-out 0.3s;
+}
+
+.tv.yellow .sparkle:nth-child(4) {
+    top: 20%;
+    right: 20%;
+    animation: sparkle 2s infinite ease-in-out 0.7s;
+}
+
+.tv.yellow .sparkle:nth-child(5) {
+    bottom: 30%;
+    left: 40%;
+    animation: sparkle 1.7s infinite ease-in-out 0.2s;
+}
+
+.tv.yellow .sparkle:nth-child(6) {
+    top: 60%;
+    right: 30%;
+    animation: sparkle 1.6s infinite ease-in-out 0.4s;
 }
 
 .red { --glow-color: #ff0000; } /* Keeping red as is for reference */
