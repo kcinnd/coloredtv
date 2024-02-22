@@ -25,7 +25,7 @@ body {
 .tv.on {
     background-color: var(--glow-color); /* Fill TV with color when on */
     box-shadow: 0 0 20px 5px var(--glow-color); /* Glow effect using box-shadow */
-    z-index: 1; /* Ensure the glow is visible above other elements if necessary */
+    z-index: 2; /* Ensure the glow is visible above other elements if necessary */
 }
 
 .tv.on::after {
@@ -35,7 +35,7 @@ body {
     border-radius: 15px;
     box-shadow: 0 0 15px 5px var(--glow-color); /* Ambient glow */
     opacity: 0.7;
-    z-index: 2;
+    z-index: 3;
 }
 
 /* Additional layer for more pronounced glow */
@@ -47,21 +47,19 @@ body {
     background: var(--glow-color); /* Solid color layer beneath glow for intensity */
     filter: blur(8px); /* Soft blur for realistic glow effect */
     opacity: 0.3; /* Subtle visibility to enhance the glow without overpowering */
+    z-index: 1;
 }
 
 .tv.yellow.on::before {
     content: '';
     position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 300%; /* Large enough to cover surrounding area */
-    height: 300%;
-    margin-top: -150%; /* Center the effect */
-    margin-left: -150%;
+    top: -50%; left: -50%; /* Adjusted for better positioning */
+    width: 200%; height: 200%; /* Adjusted for visible effect */
+    margin-top: 0; margin-left: 0; /* Removed negative margins */
     border-radius: 50%;
     background: radial-gradient(circle, rgba(250, 208, 44, 0.3) 50%, transparent 100%);
     animation: pulsate 2s infinite ease-in-out;
-    z-index: -1; /* Ensure it doesn't block interaction with the TV */
+    z-index: 0; /* Lower to keep interactive elements accessible */
 }
 
 @keyframes pulsate {
@@ -75,21 +73,19 @@ body {
     }
 }
 
-/* Star styles and animations for the yellow TV */
 .tv.yellow .star {
     position: absolute;
     width: 10px; height: 10px;
-    background-color: #FAD02C; /* Golden yellow stars */
+    background-color: #FAD02C;
     border-radius: 50%;
     opacity: 0.8;
     animation: float 5s infinite ease-in-out;
 }
 
-/* Example positioning for stars, add more as needed */
-.tv.yellow .star:nth-child(1) { top: -10px; left: 20px; }
-.tv.yellow .star:nth-child(2) { top: 20px; right: -10px; }
-.tv.yellow .star:nth-child(3) { bottom: -20px; left: 30px; }
-/* Repeat and adjust for additional stars */
+.tv.yellow .star:nth-child(1) { top: 10px; left: 20px; }
+.tv.yellow .star:nth-child(2) { top: 30px; right: 10px; }
+.tv.yellow .star:nth-child(3) { bottom: 20px; left: 30px; }
+/* Continue positioning for additional stars as desired */
 
 @keyframes float {
     0%, 100% {
