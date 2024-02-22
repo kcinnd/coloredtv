@@ -6,33 +6,34 @@ body {
 .grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
-    padding: 20px;
+    gap: 20px;
+    padding: 40px;
 }
 
 .tv {
-    width: 100px;
-    height: 60px;
+    width: 150px; /* Increased width */
+    height: 100px; /* Increased height */
     background-color: black;
-    border: 2px solid #333;
-    border-radius: 5px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    border: 3px solid #333; /* Slightly thicker border for larger TVs */
+    border-radius: 10px; /* Adjusted for aesthetic */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Soft shadow around TV */
+    transition: box-shadow 0.3s; /* Smooth transition for glow effect */
 }
 
 .tv.on {
-    box-shadow: 0 0 20px 10px;
+    box-shadow: 0 0 30px 20px var(--glow-color); /* Intense and colored glow */
 }
 
-/* Color classes */
-.red { background-color: red; box-shadow: 0 0 20px 10px red; }
-.red-orange { background-color: #ff5349; box-shadow: 0 0 20px 10px #ff5349; }
-.orange { background-color: orange; box-shadow: 0 0 20px 10px orange; }
-.orange-yellow { background-color: #ffae42; box-shadow: 0 0 20px 10px #ffae42; }
-.yellow { background-color: yellow; box-shadow: 0 0 20px 10px yellow; }
-.yellow-green { background-color: #9acd32; box-shadow: 0 0 20px 10px #9acd32; }
-.green { background-color: green; box-shadow: 0 0 20px 10px green; }
-.green-blue { background-color: #0d98ba; box-shadow: 0 0 20px 10px #0d98ba; }
-.blue { background-color: blue; box-shadow: 0 0 20px 10px blue; }
-.blue-purple { background-color: #8a2be2; box-shadow: 0 0 20px 10px #8a2be2; }
-.purple { background-color: purple; box-shadow: 0 0 20px 10px purple; }
-.purple-red { background-color: #db7093; box-shadow: 0 0 20px 10px #db7093; }
+/* Color classes with custom properties for glow */
+.red { background-color: red; --glow-color: red; }
+.red-orange { background-color: #ff5349; --glow-color: #ff5349; }
+.orange { background-color: orange; --glow-color: orange; }
+.orange-yellow { background-color: #ffae42; --glow-color: #ffae42; }
+.yellow { background-color: yellow; --glow-color: yellow; }
+.yellow-green { background-color: #9acd32; --glow-color: #9acd32; }
+.green { background-color: green; --glow-color: green; }
+.green-blue { background-color: #0d98ba; --glow-color: #0d98ba; }
+.blue { background-color: blue; --glow-color: blue; }
+.blue-purple { background-color: #8a2be2; --glow-color: #8a2be2; }
+.purple { background-color: purple; --glow-color: purple; }
+.purple-red { background-color: #db7093; --glow-color: #db7093; }
