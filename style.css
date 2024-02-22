@@ -29,15 +29,15 @@ body {
 .tv.on:before {
     content: '';
     position: absolute;
-    top: -2%; /* Extend slightly beyond the TV border */
-    left: -2%;
-    right: -2%;
-    bottom: -2%;
+    top: -5%; /* Extend slightly beyond the TV border */
+    left: -5%;
+    right: -5%;
+    bottom: -5%;
     background: transparent; /* Transparent background */
-    border-radius: 15px;
-    box-shadow: 0 0 8px 2px var(--glow-color); /* Subtle glow effect */
+    border-radius: 18px;
+    box-shadow: 0 0 15px 5x var(--glow-color); /* Subtle glow effect */
     z-index: -1; /* Positioned behind the TV content */
-    opacity: 1; /* Fully visible glow */
+    opacity: 0.8; /* Fully visible glow */
 }
 
 /* Color classes with custom properties for glow */
