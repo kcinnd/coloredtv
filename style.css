@@ -38,11 +38,9 @@ body {
 }
 
 .tv.on {
-    transform: scale(1.05);
-}
-
-.tv.on:before {
-    opacity: 0.7; /* Glow becomes visible when the TV is "on" */
+    background-color: var(--glow-color); /* Color the TV when turned on */
+    box-shadow: 0 0 8px 3px var(--glow-color); /* Subtle glow outside the TV */
+    transition: background-color 0.3s, box-shadow 0.3s; /* Smooth transition for color and glow */
 }
 
 /* Color classes with custom properties for glow */
