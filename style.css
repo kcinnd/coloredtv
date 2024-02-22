@@ -49,6 +49,57 @@ body {
     opacity: 0.3; /* Subtle visibility to enhance the glow without overpowering */
 }
 
+.tv.yellow.on::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300%; /* Large enough to cover surrounding area */
+    height: 300%;
+    margin-top: -150%; /* Center the effect */
+    margin-left: -150%;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(250, 208, 44, 0.3) 50%, transparent 100%);
+    animation: pulsate 2s infinite ease-in-out;
+    z-index: -1; /* Ensure it doesn't block interaction with the TV */
+}
+
+@keyframes pulsate {
+    0%, 100% {
+        transform: scale(0.9);
+        opacity: 0.5;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 0.8;
+    }
+}
+
+/* Star styles and animations for the yellow TV */
+.tv.yellow .star {
+    position: absolute;
+    width: 10px; height: 10px;
+    background-color: #FAD02C; /* Golden yellow stars */
+    border-radius: 50%;
+    opacity: 0.8;
+    animation: float 5s infinite ease-in-out;
+}
+
+/* Example positioning for stars, add more as needed */
+.tv.yellow .star:nth-child(1) { top: -10px; left: 20px; }
+.tv.yellow .star:nth-child(2) { top: 20px; right: -10px; }
+.tv.yellow .star:nth-child(3) { bottom: -20px; left: 30px; }
+/* Repeat and adjust for additional stars */
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0) scale(1);
+    }
+    50% {
+        transform: translateY(-15px) scale(1.3);
+    }
+}
+
 .red { --glow-color: #ff0000; } /* Keeping red as is for reference */
 .red-orange { --glow-color: #FF4433; }
 .orange { --glow-color: #FF7518; } /* Assuming a missing digit, possibly #F75180 or #FF7518 */
