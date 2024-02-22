@@ -15,7 +15,7 @@ body {
     height: 150px; /* Further increased height for larger TVs */
     background-color: black;
     border: 10px solid #555; /* Thicker border for a more pronounced TV frame */
-    border-radius: 12px; /* Adjusted for a more realistic TV look */
+    border-radius: 15px; /* Adjusted for a more realistic TV look */
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.7); /* Deeper shadow for more depth */
     position: relative;
     overflow: hidden; /* Ensures the glow doesn't extend outside the TV border */
