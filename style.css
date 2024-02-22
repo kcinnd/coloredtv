@@ -50,6 +50,37 @@ body {
     z-index: 1;
 }
 
+/* Yellow TV sparkle effect */
+.tv.yellow.on::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    z-index: 2;
+    pointer-events: none; /* Ensures clicks pass through to the TV */
+    background-image: url('path/to/sparkle.png'), url('path/to/star.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    animation: sparkleAnimation 1s infinite linear;
+}
+
+@keyframes sparkleAnimation {
+    0% {
+        transform: translate(-50%, -50%) scale(0.5);
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(1.5);
+        opacity: 0;
+    }
+}
+
 .red { --glow-color: #ff0000; } /* Keeping red as is for reference */
 .red-orange { --glow-color: #FF4433; }
 .orange { --glow-color: #FF7518; } /* Assuming a missing digit, possibly #F75180 or #FF7518 */
