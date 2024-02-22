@@ -55,6 +55,29 @@ body {
     overflow: visible; /* Allows sparkles to extend beyond the TV's border */
 }
 
+.tv.yellow.on {
+    position: relative;
+    overflow: visible; /* Allow halo to extend beyond the TV */
+}
+
+.tv.yellow.on::before {
+    content: '';
+    position: absolute;
+    top: -15px; left: -15px; right: -15px; bottom: -15px; /* Halo size */
+    border-radius: 50%;
+    box-shadow: 0 0 20px 10px #FFFF99; /* Light yellow halo */
+    animation: pulsate 2s infinite ease-in-out;
+}
+
+@keyframes pulsate {
+    0%, 100% {
+        box-shadow: 0 0 20px 10px #FFFF99;
+    }
+    50% {
+        box-shadow: 0 0 30px 15px #FFFF99; /* Halo expands */
+    }
+}
+
 .sparkle {
     position: absolute;
     width: 10px;
