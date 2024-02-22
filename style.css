@@ -49,16 +49,15 @@ body {
     opacity: 0.3; /* Subtle visibility to enhance the glow without overpowering */
 }
 
-/* Color classes with custom properties for glow */
-.red { --glow-color: red; }
-.red-orange { --glow-color: #ff5349; }
-.orange { --glow-color: orange; }
-.orange-yellow { --glow-color: #ffae42; }
-.yellow { --glow-color: yellow; }
-.yellow-green { --glow-color: #9acd32; }
-.green { --glow-color: green; }
-.green-blue { --glow-color: #0d98ba; }
-.blue { --glow-color: blue; }
-.blue-purple { --glow-color: #8a2be2; }
-.purple { --glow-color: purple; }
-.purple-red { --glow-color: #db7093; }
+.red { --glow-color: #ff0000; } /* Keeping red as is for reference */
+.red-orange { --glow-color: #FF4433; }
+.orange { --glow-color: #FF7518; } /* Assuming a missing digit, possibly #F75180 or #FF7518 */
+.orange-yellow { --glow-color: #FFAA33; }
+.yellow { --glow-color: #ffff00; } /* Keeping yellow as is for reference */
+.yellow-green { --glow-color: #9acd32; } /* No change mentioned, kept as is */
+.green { --glow-color: #008000; } /* Keeping green as is for reference */
+.green-blue { --glow-color: #088F8F; }
+.blue { --glow-color: #0000ff; } /* Keeping blue as is for reference */
+.blue-purple { --glow-color: #5A4FCF; }
+.purple { --glow-color: #800080; } /* Keeping purple as is for reference */
+.purple-red { --glow-color: #953533; }
