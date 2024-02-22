@@ -10,10 +10,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
     tvs.forEach((tv, index) => {
         tv.addEventListener('click', () => {
+            const audio = document.querySelector(`.audio.${colors[index]}-audio`); // Select the corresponding audio element
+
             if (tv.classList.contains('on')) {
                 tv.className = 'tv'; // Turn off
+                audio.pause(); // Pause the audio
+                audio.currentTime = 0; // Reset the audio to the start
             } else {
+                // Ensure all other TVs are turned off and their audios are stopped
+                tvs.forEach((otherTv, otherIndex) => {
+                    if (otherTv !== tv) {
+                        otherTv.className = 'tv';
+                        const otherAudio = document.querySelector(`.audio.${colors[otherIndex]}-audio`);
+                        otherAudio.pause();
+                        otherAudio.currentTime = 0;
+                    }
+                });
+
                 tv.className = 'tv on ' + colors[index]; // Turn on with color
+                audio.play(); // Play the audio
             }
         });
     });
