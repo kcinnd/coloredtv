@@ -50,37 +50,64 @@ body {
     z-index: 1;
 }
 
-/* Yellow TV sparkle effect */
-/* Base styles for the yellow TV sparkles */
+/* Yellow TV specific styles */
 .tv.yellow.on {
-    position: relative;
+    overflow: visible; /* Allow sparkles to show outside the TV */
+    position: relative; /* Establish positioning context for pseudo-elements */
 }
 
-.tv.yellow.on::before,
-.tv.yellow.on::after {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    background: url('path/to/sparkle-image.png') no-repeat center/contain;
-    animation: sparkle 1.5s infinite ease-in-out;
-}
-
-.tv.yellow.on::after {
-    animation-delay: 0.75s; /* Offset the animation timing for a continuous effect */
-}
-
-@keyframes sparkle {
+/* Sparkles animation */
+@keyframes sparkleAnimation {
     0%, 100% {
-        transform: scale(0);
         opacity: 0;
+        transform: scale(0);
     }
     50% {
-        transform: scale(1);
         opacity: 1;
+        transform: scale(1);
     }
+}
+
+/* Generate multiple sparkles using pseudo-elements */
+.tv.yellow.on::before,
+.tv.yellow.on::after {
+    content: '★'; /* Using a star character for simplicity, can be replaced with images */
+    position: absolute;
+    font-size: 20px; /* Adjust size as needed */
+    color: #FFD700; /* Gold color for the sparkles */
+    animation: sparkleAnimation 1s infinite ease-in-out;
+    opacity: 0; /* Start and end the animation with sparkles faded out */
+}
+
+.tv.yellow.on::before {
+    top: -10px;
+    left: 10px;
+    animation-delay: -0.5s; /* Stagger the animations for a continuous effect */
+}
+
+.tv.yellow.on::after {
+    top: 10px;
+    right: -10px;
+}
+
+/* Additional sparkles for more effect */
+.tv.yellow.on::nth-child(1)::before,
+.tv.yellow.on::nth-child(1)::after {
+    content: '✦'; /* Different sparkle character for variety */
+    font-size: 15px; /* Slightly smaller than the stars */
+    animation: sparkleAnimation 1.5s infinite ease-in-out;
+}
+
+.tv.yellow.on::nth-child(1)::before {
+    bottom: -10px;
+    right: 20px;
+    animation-delay: 0s; /* Different delays for asynchronous twinkling */
+}
+
+.tv.yellow.on::nth-child(1)::after {
+    top: 20px;
+    left: -5px;
+    animation-delay: 1s;
 }
 
 .red { --glow-color: #ff0000; } /* Keeping red as is for reference */
