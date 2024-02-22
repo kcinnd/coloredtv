@@ -26,17 +26,24 @@ body {
     background-color: var(--glow-color); /* Fill TV with color when on */
 }
 
-.tv.on:before {
+.tv.on::after {
     content: '';
     position: absolute;
-    top: -15%; /* Extend slightly beyond the TV border */
-    left: -15%;
-    right: -15%;
-    bottom: -15%;
-    border-radius: 18px;
-    box-shadow: 0 0 20px 10x var(--glow-color); /* Subtle glow effect */
-    z-index: -1; /* Positioned behind the TV content */
-    opacity: 0.8; /* Fully visible glow */
+    top: -5%; left: -5%; right: -5%; bottom: -5%; /* Extends slightly beyond TV */
+    border-radius: 15px; /* Soft rounded corners for glow */
+    box-shadow: 0 0 15px 5px var(--glow-color); /* Creates outer glow */
+    opacity: 0.6; /* Glow visibility */
+}
+
+/* Additional layer for more pronounced glow */
+.tv.on::before {
+    content: '';
+    position: absolute;
+    top: -2%; left: -2%; right: -2%; bottom: -2%; /* Closer to TV edges */
+    border-radius: 15px;
+    background: var(--glow-color); /* Solid color layer beneath glow for intensity */
+    filter: blur(8px); /* Soft blur for realistic glow effect */
+    opacity: 0.3; /* Subtle visibility to enhance the glow without overpowering */
 }
 
 /* Color classes with custom properties for glow */
